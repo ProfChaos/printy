@@ -4,10 +4,11 @@ package printy
 
 import (
 	"fmt"
-	"github.com/azer/is-terminal"
 	"os"
 	"syscall"
 	"time"
+
+	"github.com/azer/is-terminal"
 )
 
 var (
@@ -59,7 +60,7 @@ func Log(s interface{}) {
 
 // format formats output
 func format(f *os.File, sys syscall.Handle, s interface{}, typ string, c style) {
-	now := time.Now().Format("2006-02-01 03:04:05.000")
+	now := time.Now().Format("2006-01-02 15:04:05.000")
 	r := reset
 
 	if !isterminal.IsTerminal(int(sys)) {
