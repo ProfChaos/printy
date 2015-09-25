@@ -1,5 +1,4 @@
 // Copyright 2015 Dan S. Audne. All rights reserved.
-// +build darwin linux
 
 package printy
 
@@ -60,11 +59,11 @@ func Log(s interface{}) {
 }
 
 // format formats output
-func format(f *os.File, sys int, s interface{}, typ string, c style) {
+func format(f *os.File, sys syscall.Handle, s interface{}, typ string, c style) {
 	now := time.Now().Format("2006-01-02 15:04:05.000")
 	r := reset
 
-	if !isterminal.IsTerminal(sys) {
+	if !isterminal.IsTerminal(int(sys)) {
 		c = style{}
 		r = ""
 	}
