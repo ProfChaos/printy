@@ -68,5 +68,5 @@ func format(f *os.File, sys syscall.Handle, s interface{}, typ string, c style) 
 		r = ""
 	}
 
-	fmt.Fprintf(f, "%s[%s] %s%s:%s %s%s\n", c.Time, now, c.Type, typ, r, s, r)
+	fmt.Fprintf(f, "%v[%v] %v%v:%v %v%v\n", c.Time, now, c.Type, typ, r, s, r)
 }
